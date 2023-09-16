@@ -2,10 +2,10 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int countWordsInFile(const string &filename)
+int countWords(const string &filename)
 {
     ifstream inputFile(filename);
     if (!inputFile)
@@ -13,10 +13,8 @@ int countWordsInFile(const string &filename)
         cerr << "Error opening file: " << filename << endl;
         return -1;
     }
-
     string line;
     int wordCount = 0;
-
     while (getline(inputFile, line))
     {
         stringstream ss(line);
@@ -35,13 +33,10 @@ int main()
     string filename;
     cout << "Enter the name of the file: ";
     cin >> filename;
-
-    int count = countWordsInFile(filename);
-
+    int count = countWords(filename);
     if (count >= 0)
     {
         cout << "Number of words in the file: " << count << endl;
     }
-
     return 0;
 }
